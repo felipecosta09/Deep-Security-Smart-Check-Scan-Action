@@ -2,9 +2,6 @@
 
 You can find the original code on: https://github.com/deep-security/smartcheck-scan-action
 
-For scanning your images as part of your CI pipeline using [Deep Security Smart
-Check][].
-
 [deep security smart check]: https://www.trendmicro.com/smartcheck
 
 This tool is used by the Deep Security Smart Check plugin for Jenkins and can
