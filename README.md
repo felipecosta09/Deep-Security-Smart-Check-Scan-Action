@@ -1,5 +1,7 @@
 # Deep Security Smart Check Scan Action
 
+You can find the original code on: https://github.com/deep-security/smartcheck-scan-action
+
 For scanning your images as part of your CI pipeline using [Deep Security Smart
 Check][].
 
