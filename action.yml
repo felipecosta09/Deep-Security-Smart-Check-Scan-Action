@@ -1,1 +1,13 @@
-test
+name: 'Deep Security Smart Check Scan'
+description: 'Scan container images with Deep Security Smart Check.'
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
