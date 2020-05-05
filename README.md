@@ -14,7 +14,6 @@ Smart Check.
 
 ```main.workflow
 action "Scan with Deep Security Smart Check" {
-  needs = "Push image to GCR"
   uses = "docker://deepsecurity/smartcheck-scan-action"
   secrets = [
     "DSSC_SMARTCHECK_HOST",
