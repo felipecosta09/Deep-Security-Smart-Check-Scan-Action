@@ -16,13 +16,23 @@ Smart Check.
 - name: Deep Security Smart Check
   uses: felipecosta09/Deep-Security-Smart-Check-Scan-Action@version*
    with:
+      # Mandatory
       DSSC_IMAGE_NAME: myorg/myimage
       DSSC_SMARTCHECK_HOST: myorg.com
       DSSC_SMARTCHECK_USER: admin
       DSSC_SMARTCHECK_PASSWORD: 12345
+      DSSC_IMAGE_PULL_AUTH: {"username":"<user>","password":"<password>"}
+
+      # Optional
       DSSC_INSECURE_SKIP_TLS_VERIFY: true
       DSSC_INSECURE_SKIP_REGISTRY_TLS_VERIFY: true
-      DSSC_IMAGE_PULL_AUTH: {"username":"<user>","password":"<password>"}
+      DSSC_PREREGISTRY_SCAN: false
+      DSSC_PREREGISTRY_HOST: myorg.com
+      DSSC_PREREGISTRY_USER: admin
+      DSSC_PREREGISTRY_PASSWORD: 12345
+      DSSC_RESULTS_FILE: /results.json
+      DSSC_FINDINGS_THRESHOLD: '{"malware": 100, "vulnerabilities": { "defcon1": 100, "critical": 100, "high": 100 }, "contents": { "defcon1": 100, "critical": 100, "high": 100 }, "checklists": { "defcon1": 100, "critical": 100, "high": 100 }}'
+      
 ```
 
 ### Parameters

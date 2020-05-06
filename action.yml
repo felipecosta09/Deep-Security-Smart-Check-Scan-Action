@@ -23,7 +23,7 @@ inputs:
     description: (Bolean) If Deep Security Smart Check should ignore certificate errors from the image registry. eg true
     required: false
   DSSC_PREREGISTRY_SCAN:
-    description: Specify this option to trigger a "pre-registry scan", which pushes the image to a temporary registry on the scan system.
+    description: (Bolean) Specify this option to trigger a "pre-registry scan", which pushes the image to a temporary registry on the scan system.
     required: false
   DSSC_PREREGISTRY_HOST:
     description: The hostname of the temporary registry. Defaults to the smartcheck-host on port 5000.
