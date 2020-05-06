@@ -68,7 +68,7 @@ be given with `DSSC_IMAGE_NAME`.
   - If you're using AWS, you can use this example below: 
 
     ```json
-    {"aws":{"region":"us-east-1","accessKeyID":"'AWS_ACCESS_KEY_ID'","secretAccessKey":"'AWS_SECRET_ACCESS_KEY'"}}
+    '{"aws":{"region":"us-east-1","accessKeyID":"'$AWS_ACCESS_KEY_ID'","secretAccessKey":"'$AWS_SECRET_ACCESS_KEY'"}}'
     ```
   **PS.: ALWAYS use secret to expose your credentials!**
 
@@ -162,41 +162,31 @@ be given with `DSSC_IMAGE_NAME`.
 
 ## Example Workflow
 
-```main.workflow
-workflow "Push image" {
-  on = "push"
-  resolves = "Scan with Deep Security Smart Check"
-}
-action "Build image" {
-  uses = "docker://docker:stable"
-  args = ["build", "-t", "registry.example.com/my-project/my-image", "."]
-}
-action "Docker Login" {
-  uses = "actions/docker/login@master"
-  env = {
-    DOCKER_REGISTRY_URL = "registry.example.com"
-  }
-  secrets = [
-    "DOCKER_USERNAME",
-    "DOCKER_PASSWORD"
-  ]
-}
-action "Push image" {
-  needs = ["Build image", "Docker Login"]
-  uses = "actions/docker/cli@master"
-  args = "push registry.example.com/my-project/my-image"
-}
-action "Scan with Deep Security Smart Check" {
-  needs = "Push image"
-  uses = "docker://deepsecurity/smartcheck-scan-action"
-  secrets = [
-    "DSSC_SMARTCHECK_HOST",
-    "DSSC_SMARTCHECK_USER",
-    "DSSC_SMARTCHECK_PASSWORD",
-    "DSSC_IMAGE_PULL_AUTH"
-  ]
-  args = ["--image-name registry.example.com/my-project/my-image"]
-}
+```
+name: Deep Security Smart Check Pipeline Example
+
+on: 
+  push:
+    branches: 
+      - master
+      
+jobs:      
+    SmartCheck-Scan-Action:
+       runs-on: ubuntu-latest
+       steps:
+        - name: Deep Security Smart Check
+          uses: felipecosta09/Deep-Security-Smart-Check-Scan-Action@v1.0.7-alpha
+          with:
+            # Container repository, eg myorg/myimage.
+            DSSC_IMAGE_NAME: ${{ secrets.DSSC_IMAGE_NAME }}
+            # Deep Security Smart Check url, eg mydomain.com.
+            DSSC_SMARTCHECK_HOST: ${{ secrets.DSSC_SMARTCHECK_HOST }}
+            # Deep Security Smart Check username, eg admin.
+            DSSC_SMARTCHECK_USER: ${{ secrets.DSSC_SMARTCHECK_USER }}
+            # Deep Security Smart Check password, eg 12345.
+            DSSC_SMARTCHECK_PASS: ${{ secrets.DSSC_SMARTCHECK_PASSWORD }}
+            # Container registry credentials in a json format,  eg '{"username":"<user>","password":"<password>"}' or {"aws":{"region":"us-east-1","accessKeyID":"'AWS_ACCESS_KEY_ID'","secretAccessKey":"'AWS_SECRET_ACCESS_KEY'"}}'
+            DSSC_IMAGE_PULL_AUTH:  ${{ secrets.DSSC_IMAGE_PULL_AUTH }}
 ```
 
 ## Pre-registry scanning
