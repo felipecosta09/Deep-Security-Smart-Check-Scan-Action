@@ -1,4 +1,4 @@
-name: 'Deep Security Smart Check Scan'
+name: 'Deep Security Smart Check'
 description: 'Scan container images with Deep Security Smart Check.'
 branding:
   icon: 'check'
