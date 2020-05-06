@@ -22,6 +22,24 @@ inputs:
   DSSC_INSECURE_SKIP_REGISTRY_TLS_VERIFY:
     description: (Bolean) If Deep Security Smart Check should ignore certificate errors from the image registry. eg true
     required: false
+  DSSC_PREREGISTRY_SCAN:
+    description: Specify this option to trigger a "pre-registry scan", which pushes the image to a temporary registry on the scan system.
+    required: false
+  DSSC_PREREGISTRY_HOST:
+    description: The hostname of the temporary registry. Defaults to the smartcheck-host on port 5000.
+    required: false
+  DSSC_PREREGISTRY_USER:
+    description: The username to authenticate with the temporary registry.
+    required: false
+  DSSC_PREREGISTRY_PASSWORD:
+    description: The password to authenticate with the temporary registry.
+    required: false
+  DSSC_RESULTS_FILE:
+    description: The path to write the scan results to. If not provided, the scan results will be written to stdout.
+    required: false
+  DSSC_FINDINGS_THRESHOLD:
+    description: A JSON object that can be used to fail this step if an image contains findings that exceed the threshold.
+    required: false
 branding:
   icon: 'check'
   color: 'red'
