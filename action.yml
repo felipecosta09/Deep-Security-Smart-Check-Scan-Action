@@ -1,2 +1,5 @@
 name: 'Deep Security Smart Check Scan'
 description: 'Scan container images with Deep Security Smart Check.'
+branding:
+  icon: 'check'
+  color: 'red'
