@@ -43,6 +43,7 @@ runs:
     DSSC_RESULTS_FILE: ${{ inputs.DSSC_RESULTS_FILE }}
     DSSC_FINDINGS_THRESHOLD: ${{ inputs.DSSC_FINDINGS_THRESHOLD }}
 
+
      
     # '{"aws":{"region":"us-east-1","accessKeyID":"'$AWS_ACCESS_KEY_ID'","secretAccessKey":"'$AWS_SECRET_ACCESS_KEY'"}}'
     #  650143975734.dkr.ecr.us-east-1.amazonaws.com/djangonv
