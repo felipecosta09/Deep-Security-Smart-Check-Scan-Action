@@ -9,21 +9,27 @@ also be used as a [GitHub Action](https://github.com/features/actions).
 
 ## Usage
 
-Add an Action in your `main.workflow` file to scan your image with Deep Security
+Add an Action in your `.github/workflow` yml file to scan your image with Deep Security
 Smart Check.
 
 ```main.workflow
-action "Scan with Deep Security Smart Check" {
-  needs = "Push image to GCR"
-  uses = "docker://deepsecurity/smartcheck-scan-action"
-  secrets = [
-    "DSSC_SMARTCHECK_HOST",
-    "DSSC_SMARTCHECK_USER",
-    "DSSC_SMARTCHECK_PASSWORD",
-    "DSSC_IMAGE_PULL_AUTH"
-  ]
-  args = ["--image-name registry.example.com/my-project/my-image"]
-}
+- name: Deep Security Smart Check
+  uses: felipecosta09/Deep-Security-Smart-Check-Scan-Action@version*
+   with:
+      # Your Container Repository.
+      IMAGE: myorg/myimage
+
+      # Your Deep Security Smart Check URL.
+      DSSC_HOST: myorg.com
+      
+      # Your Deep Security Smart Check Username.
+      DSSC_USER: admin
+      
+      # Your Deep Security Smart Check Password.
+      DSSC_PASS: 12345
+
+      # Your Container registry credentials in a json format,  eg {"username":"<user>","password":"<password>"} or {"aws":{"region":"us-east-1","accessKeyID":"'AWS_ACCESS_KEY_ID'","secretAccessKey":"'AWS_SECRET_ACCESS_KEY'"}}'.
+      PULL_AUTH: {"username":"<user>","password":"<password>"}
 ```
 
 ### Parameters
