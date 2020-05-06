@@ -16,9 +16,6 @@ inputs:
   DSSC_IMAGE_PULL_AUTH:
     description: (MANDATORY) Container registry credentials in a json format,  eg '{"username":"<user>","password":"<password>"}' or {"aws":{"region":"us-east-1","accessKeyID":"'AWS_ACCESS_KEY_ID'","secretAccessKey":"'AWS_SECRET_ACCESS_KEY'"}}'
     required: true
-  
-    # Optional
-
   DSSC_INSECURE_SKIP_TLS_VERIFY:
     description: (OPTIONAL) If the client should ignore certificate errors when connecting to Deep Security Smart Check. You may want to set this if you've configured a self signed cert. eg true
     required: false
