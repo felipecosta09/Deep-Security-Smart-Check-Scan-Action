@@ -7,13 +7,14 @@ runs:
   using: "docker"
   image: "docker://deepsecurity/smartcheck-scan-action:latest"
   args:
-    - --image-name=650143975734.dkr.ecr.us-east-1.amazonaws.com/djangonv
-    - --smartcheck-host=$DSSC_SMARTCHECK_HOST
-    - --smartcheck-user=$DSSC_SMARTCHECK_USER
-    - --smartcheck-password=$DSSC_SMARTCHECK_PASSWORD
-    - --insecure-skip-tls-verify
-    - --insecure-skip-registry-tls-verify
-    - --image-pull-auth='{"aws":{"region":"us-east-1","accessKeyID":"'$AWS_ACCESS_KEY_ID'","secretAccessKey":"'$AWS_SECRET_ACCESS_KEY'"}}'
+    - --privileged
+    # - --image-name=650143975734.dkr.ecr.us-east-1.amazonaws.com/djangonv
+    # - --smartcheck-host=$DSSC_SMARTCHECK_HOST
+    # - --smartcheck-user=$DSSC_SMARTCHECK_USER
+    # - --smartcheck-password=$DSSC_SMARTCHECK_PASSWORD
+    # - --insecure-skip-tls-verify
+    # - --insecure-skip-registry-tls-verify
+    # - --image-pull-auth='{"aws":{"region":"us-east-1","accessKeyID":"'$AWS_ACCESS_KEY_ID'","secretAccessKey":"'$AWS_SECRET_ACCESS_KEY'"}}'
     # - --help
     # - ${{ inputs.src }}
     # - "--report_file"
