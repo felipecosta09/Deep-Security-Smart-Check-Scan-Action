@@ -13,7 +13,6 @@ Add an Action in your `.github/workflow` yml file to scan your image with Deep S
 Smart Check.
 
 ```yml
-
 - name: Deep Security Smart Check
   uses: felipecosta09/Deep-Security-Smart-Check-Scan-Action@version*
    with:
