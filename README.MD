@@ -162,7 +162,7 @@ be given with `DSSC_IMAGE_NAME`.
 
 ## Example Workflow
 
-```
+```yml
 name: Deep Security Smart Check Pipeline Example
 
 on: 
