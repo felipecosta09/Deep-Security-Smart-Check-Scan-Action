@@ -16,20 +16,13 @@ Smart Check.
 - name: Deep Security Smart Check
   uses: felipecosta09/Deep-Security-Smart-Check-Scan-Action@version*
    with:
-      # Your Container Repository.
-      IMAGE: myorg/myimage
-
-      # Your Deep Security Smart Check URL.
-      DSSC_HOST: myorg.com
-      
-      # Your Deep Security Smart Check Username.
-      DSSC_USER: admin
-      
-      # Your Deep Security Smart Check Password.
-      DSSC_PASS: 12345
-
-      # Your Container registry credentials in a json format,  eg {"username":"<user>","password":"<password>"} or for AWS {"aws":{"region":"us-east-1","accessKeyID":"'AWS_ACCESS_KEY_ID'","secretAccessKey":"'AWS_SECRET_ACCESS_KEY'"}}'.
-      PULL_AUTH: {"username":"<user>","password":"<password>"}
+      DSSC_IMAGE_NAME: myorg/myimage
+      DSSC_SMARTCHECK_HOST: myorg.com
+      DSSC_SMARTCHECK_USER: admin
+      DSSC_SMARTCHECK_PASSWORD: 12345
+      DSSC_INSECURE_SKIP_TLS_VERIFY: true
+      DSSC_INSECURE_SKIP_REGISTRY_TLS_VERIFY: true
+      DSSC_IMAGE_PULL_AUTH: {"username":"<user>","password":"<password>"}
 ```
 
 ### Parameters
@@ -61,6 +54,11 @@ be given with `DSSC_IMAGE_NAME`.
       "username": "<user>",
       "password": "<password>"
     }
+    ``` 
+  - If you're using AWS, you can use this example below: 
+
+    ```json
+    {"aws":{"region":"us-east-1","accessKeyID":"'AWS_ACCESS_KEY_ID'","secretAccessKey":"'AWS_SECRET_ACCESS_KEY'"}}
     ```
 
     See [creating a scan][] in the [Deep Security Smart Check API Reference][]

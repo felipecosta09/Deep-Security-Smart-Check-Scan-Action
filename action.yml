@@ -1,33 +1,33 @@
 name: 'Deep Security Smart Check'
 description: 'Scan container images with Deep Security Smart Check.'
-inputs:
-  IMAGE:
-    description: Container repository, eg myorg/myimage.
-    required: true
-  DSSC_HOST:
-    description: Deep Security Smart Check url, eg mydomain.com.
-    required: true
-  DSSC_USER:
-    description: Deep Security Smart Check username, eg admin.
-    required: true
-  DSSC_PASS:
-    description: Deep Security Smart Check password, eg 12345.
-    required: true
-  PULL_AUTH:
-    description: Container registry credentials in a json format,  eg {"username":"<user>","password":"<password>"} or {"aws":{"region":"us-east-1","accessKeyID":"'AWS_ACCESS_KEY_ID'","secretAccessKey":"'AWS_SECRET_ACCESS_KEY'"}}'
-    required: true
+# inputs:
+#   IMAGE:
+#     description: Container repository, eg myorg/myimage.
+#     required: true
+#   DSSC_HOST:
+#     description: Deep Security Smart Check url, eg mydomain.com.
+#     required: true
+#   DSSC_USER:
+#     description: Deep Security Smart Check username, eg admin.
+#     required: true
+#   DSSC_PASS:
+#     description: Deep Security Smart Check password, eg 12345.
+#     required: true
+#   PULL_AUTH:
+#     description: Container registry credentials in a json format,  eg {"username":"<user>","password":"<password>"} or {"aws":{"region":"us-east-1","accessKeyID":"'AWS_ACCESS_KEY_ID'","secretAccessKey":"'AWS_SECRET_ACCESS_KEY'"}}'
+#     required: true
 branding:
   icon: 'check'
   color: 'red'
 runs:
   using: "docker"
   image: "docker://deepsecurity/smartcheck-scan-action:latest"
-  args:
-    - --image-name=${{ inputs.IMAGE }}
-    - --smartcheck-host=${{ inputs.DSSC_HOST }}
-    - --smartcheck-user=${{ inputs.DSSC_USER }}
-    - --smartcheck-password=${{ inputs.DSSC_PASS }}
-    - --image-pull-auth=${{ inputs.PULL_AUTH }}
+  # args:
+  #   - --image-name=${{ inputs.IMAGE }}
+  #   - --smartcheck-host=${{ inputs.DSSC_HOST }}
+  #   - --smartcheck-user=${{ inputs.DSSC_USER }}
+  #   - --smartcheck-password=${{ inputs.DSSC_PASS }}
+  #   - --image-pull-auth=${{ inputs.PULL_AUTH }}
     # '{"aws":{"region":"us-east-1","accessKeyID":"'$AWS_ACCESS_KEY_ID'","secretAccessKey":"'$AWS_SECRET_ACCESS_KEY'"}}'
     #  650143975734.dkr.ecr.us-east-1.amazonaws.com/djangonv
     # - ${{ inputs.src }}
