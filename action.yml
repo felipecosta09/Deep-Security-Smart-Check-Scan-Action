@@ -8,7 +8,7 @@ runs:
   image: "docker://deepsecurity/smartcheck-scan-action:latest"
   args:
     - --version
-    # - "--src"
+    - --help
     # - ${{ inputs.src }}
     # - "--report_file"
     # - ${{ inputs.report_file }}
