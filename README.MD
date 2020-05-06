@@ -12,7 +12,8 @@ also be used as a [GitHub Action](https://github.com/features/actions).
 Add an Action in your `.github/workflow` yml file to scan your image with Deep Security
 Smart Check.
 
-```main.workflow
+```yml
+
 - name: Deep Security Smart Check
   uses: felipecosta09/Deep-Security-Smart-Check-Scan-Action@version*
    with:
@@ -31,8 +32,7 @@ Smart Check.
       DSSC_PREREGISTRY_USER: admin
       DSSC_PREREGISTRY_PASSWORD: 12345
       DSSC_RESULTS_FILE: /results.json
-      DSSC_FINDINGS_THRESHOLD: '{"malware": 100, "vulnerabilities": { "defcon1": 100, "critical": 100, "high": 100 }, "contents": { "defcon1": 100, "critical": 100, "high": 100 }, "checklists": { "defcon1": 100, "critical": 100, "high": 100 }}'
-      
+      DSSC_FINDINGS_THRESHOLD: '{"malware": 100, "vulnerabilities": { "defcon1": 100, "critical": 100, "high": 100 }, "contents": { "defcon1": 100, "critical": 100, "high": 100 }, "checklists": { "defcon1": 100, "critical": 100, "high": 100 }}'    
 ```
 
 ### Parameters
