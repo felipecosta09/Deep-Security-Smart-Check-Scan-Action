@@ -3,3 +3,12 @@ description: 'Scan container images with Deep Security Smart Check.'
 branding:
   icon: 'check'
   color: 'red'
+runs:
+  using: "docker"
+  image: "docker://deepsecurity/smartcheck-scan-action:latest"
+  args:
+    - --version
+    # - "--src"
+    # - ${{ inputs.src }}
+    # - "--report_file"
+    # - ${{ inputs.report_file }}
