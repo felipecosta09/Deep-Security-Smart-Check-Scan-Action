@@ -2,7 +2,7 @@
 
 You can find the original code on: https://github.com/deep-security/smartcheck-scan-action
 
-[deep security smart check]: https://www.trendmicro.com/smartcheck
+[Deep Security Smart Check]: https://www.trendmicro.com/smartcheck
 
 This tool is used by the Deep Security Smart Check plugin for [Jenkins](https://plugins.jenkins.io/deepsecurity-smartcheck/) and can
 also be used as a [GitHub Action](https://github.com/features/actions).
@@ -28,7 +28,7 @@ Smart Check.
       # Your Deep Security Smart Check Password.
       DSSC_PASS: 12345
 
-      # Your Container registry credentials in a json format,  eg {"username":"<user>","password":"<password>"} or {"aws":{"region":"us-east-1","accessKeyID":"'AWS_ACCESS_KEY_ID'","secretAccessKey":"'AWS_SECRET_ACCESS_KEY'"}}'.
+      # Your Container registry credentials in a json format,  eg {"username":"<user>","password":"<password>"} or for AWS {"aws":{"region":"us-east-1","accessKeyID":"'AWS_ACCESS_KEY_ID'","secretAccessKey":"'AWS_SECRET_ACCESS_KEY'"}}'.
       PULL_AUTH: {"username":"<user>","password":"<password>"}
 ```
 
