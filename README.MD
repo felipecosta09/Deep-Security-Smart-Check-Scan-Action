@@ -73,7 +73,7 @@ be given with `DSSC_IMAGE_NAME`.
     ```json
     '{"aws":{"region":"us-east-1","accessKeyID":"'$AWS_ACCESS_KEY_ID'","secretAccessKey":"'$AWS_SECRET_ACCESS_KEY'"}}'
     ```
-  **PS.: ALWAYS use secret to expose your credentials!**
+  **PS.: ALWAYS use secrets to expose your credentials!**
 
     See [creating a scan][] in the [Deep Security Smart Check API Reference][]
     for additional registry credentials options.
