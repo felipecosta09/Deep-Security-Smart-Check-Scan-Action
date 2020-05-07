@@ -168,7 +168,7 @@ be given with `DSSC_IMAGE_NAME`.
 ## Example Workflow Using Github Actions
 
 ```yml
-name: Deep Security Smart Check Pipeline Example
+name: Deep Security Smart Check
 
 on: 
   push:
@@ -179,19 +179,28 @@ jobs:
     SmartCheck-Scan-Action:
        runs-on: ubuntu-latest
        steps:
-        - name: Deep Security Smart Check
-          uses: felipecosta09/Deep-Security-Smart-Check-Scan-Action@v1.0.7-alpha
+        - name: Deep Security Smart Check Scan ECR
+          uses: felipecosta09/Deep-Security-Smart-Check-Scan-Action@v1.0.0
           with:
-            # Container repository, eg myorg/myimage.
-            DSSC_IMAGE_NAME: ${{ secrets.DSSC_IMAGE_NAME }}
-            # Deep Security Smart Check url, eg mydomain.com.
+            DSSC_IMAGE_NAME: myECRrepo/myimage
             DSSC_SMARTCHECK_HOST: ${{ secrets.DSSC_SMARTCHECK_HOST }}
-            # Deep Security Smart Check username, eg admin.
             DSSC_SMARTCHECK_USER: ${{ secrets.DSSC_SMARTCHECK_USER }}
-            # Deep Security Smart Check password, eg 12345.
-            DSSC_SMARTCHECK_PASS: ${{ secrets.DSSC_SMARTCHECK_PASSWORD }}
-            # Container registry credentials in a json format,  eg '{"username":"<user>","password":"<password>"}' or {"aws":{"region":"us-east-1","accessKeyID":"'AWS_ACCESS_KEY_ID'","secretAccessKey":"'AWS_SECRET_ACCESS_KEY'"}}'
-            DSSC_IMAGE_PULL_AUTH:  ${{ secrets.DSSC_IMAGE_PULL_AUTH }}
+            DSSC_SMARTCHECK_PASSWORD: ${{ secrets.DSSC_SMARTCHECK_PASSWORD }}
+            DSSC_IMAGE_PULL_AUTH: ${{ secrets.DSSC_IMAGE_PULL_AUTH }}
+            DSSC_FINDINGS_THRESHOLD: '{"malware": 999, "vulnerabilities": { "defcon1": 999, "critical": 999, "high": 999 }, "contents": { "defcon1": 999, "critical": 999, "high": 999 }, "checklists": { "defcon1": 999, "critical": 999, "high": 999 }}'
+            DSSC_INSECURE_SKIP_TLS_VERIFY: true
+            DSSC_INSECURE_SKIP_REGISTRY_TLS_VERIFY: true
+        - name: Deep Security Smart Check Scan ACR
+          uses: felipecosta09/Deep-Security-Smart-Check-Scan-Action@v1.0.0
+          with:
+            DSSC_IMAGE_NAME: myrepo.azurecr.io/myimage
+            DSSC_SMARTCHECK_HOST: ${{ secrets.DSSC_SMARTCHECK_HOST }}
+            DSSC_SMARTCHECK_USER: ${{ secrets.DSSC_SMARTCHECK_USER }}
+            DSSC_SMARTCHECK_PASSWORD: ${{ secrets.DSSC_SMARTCHECK_PASSWORD }}
+            DSSC_IMAGE_PULL_AUTH: '{"username": "${{ secrets.ACR_USER }}","password": "${{ secrets.ACR_PASSWORD }}"}'
+            DSSC_FINDINGS_THRESHOLD: '{"malware": 999, "vulnerabilities": { "defcon1": 999, "critical": 999, "high": 999 }, "contents": { "defcon1": 999, "critical": 999, "high": 999 }, "checklists": { "defcon1": 999, "critical": 999, "high": 999 }}'
+            DSSC_INSECURE_SKIP_TLS_VERIFY: true
+            DSSC_INSECURE_SKIP_REGISTRY_TLS_VERIFY: true
 ```
 
 ## Example Workflow Running a Docker Container
