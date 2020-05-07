@@ -1,4 +1,4 @@
-# :lock: Deep Security Smart Check Scan Action
+# :white_check_mark: Deep Security Smart Check Scan Action
 
 You can find the original code on: https://github.com/deep-security/smartcheck-scan-action
 
