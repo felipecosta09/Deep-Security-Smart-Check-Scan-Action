@@ -163,7 +163,7 @@ be given with `DSSC_IMAGE_NAME`.
     }
     ```
 
-## Example Workflow
+## Example Workflow Using Github Actions
 
 ```yml
 name: Deep Security Smart Check Pipeline Example
@@ -190,6 +190,26 @@ jobs:
             DSSC_SMARTCHECK_PASS: ${{ secrets.DSSC_SMARTCHECK_PASSWORD }}
             # Container registry credentials in a json format,  eg '{"username":"<user>","password":"<password>"}' or {"aws":{"region":"us-east-1","accessKeyID":"'AWS_ACCESS_KEY_ID'","secretAccessKey":"'AWS_SECRET_ACCESS_KEY'"}}'
             DSSC_IMAGE_PULL_AUTH:  ${{ secrets.DSSC_IMAGE_PULL_AUTH }}
+```
+
+## Example Workflow Running a Docker Container
+
+```yml
+name: Deep Security Smart Check Pipeline Example
+
+on: 
+  push:
+    branches: 
+      - master
+      
+jobs:      
+    SmartCheck-Scan-Action:
+       runs-on: ubuntu-latest
+       steps:
+        - name: Deep Security Smart Check
+          run: |
+          docker run -v /var/run/docker.sock:/var/run/docker.sock deepsecurity/smartcheck-scan-action --image-name $ECR_REPO/djangonv --smartcheck-host=$DSSC_URL --smartcheck-user=$DSSC_USER --smartcheck-password=$DSSC_PSW --insecure-skip-tls-verify --insecure-skip-registry-tls-verify --image-pull-auth='{"aws":{"region":"us-east-1","accessKeyID":"'$AWS_ACCESS_KEY_ID'","secretAccessKey":"'$AWS_SECRET_ACCESS_KEY'"}}' --findings-threshold '{"malware": 100, "vulnerabilities": { "defcon1": 100, "critical": 100, "high": 100 }, "contents": { "defcon1": 100, "critical": 100, "high": 100 }, "checklists": { "defcon1": 100, "critical": 100, "high": 100 }}'
+          
 ```
 
 ## Pre-registry scanning
