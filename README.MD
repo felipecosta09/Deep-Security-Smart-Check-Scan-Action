@@ -2,6 +2,8 @@
 
 You can find the original code on: https://github.com/deep-security/smartcheck-scan-action
 
+<img src="Trend-Micro-Logo.png">
+
 ## Scan your containers with [Deep Security Smart Check](https://www.trendmicro.com/smartcheck).
 
 This tool is used by the Deep Security Smart Check plugin for [Jenkins](https://plugins.jenkins.io/deepsecurity-smartcheck/) and can also be used as a [GitHub Action](https://github.com/features/actions).
