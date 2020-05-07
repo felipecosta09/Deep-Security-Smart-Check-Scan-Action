@@ -40,6 +40,7 @@ inputs:
   DSSC_FINDINGS_THRESHOLD:
     description: (OPTIONAL) A JSON object that can be used to fail this step if an image contains findings that exceed the threshold.
     required: false
+    default: '{"malware": 999, "vulnerabilities": { "defcon1": 999, "critical": 999, "high": 999 }, "contents": { "defcon1": 999, "critical": 999, "high": 999 }, "checklists": { "defcon1": 999, "critical": 999, "high": 999 }}'
 branding:
   icon: "check"
   color: "red"
