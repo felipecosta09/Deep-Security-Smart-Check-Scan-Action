@@ -19,7 +19,7 @@ Add an Action in your `.github/workflow` yml file to scan your image with Trend 
 
 ```yml
 - name: Cloud One Container Security Scan Action
-  uses: felipecosta09/Cloud-One-Container-Security-Scan-Action@version*
+  uses: felipecosta09/Deep-Security-Smart-Check-Scan-Action@version*
    with:
       # Mandatory
       DSSC_IMAGE_NAME: myorg/myimage
@@ -179,7 +179,7 @@ jobs:
        runs-on: ubuntu-latest
        steps:
         - name: Cloud One Container Security Scan ECR
-          uses: felipecosta09/Cloud-One-Container-Security-Scan-Action@version*
+          uses: felipecosta09/Deep-Security-Smart-Check-Scan-Action@version*
           with:
             DSSC_IMAGE_NAME: myECRrepo/myimage
             DSSC_SMARTCHECK_HOST: ${{ secrets.DSSC_SMARTCHECK_HOST }}
@@ -190,7 +190,7 @@ jobs:
             DSSC_INSECURE_SKIP_TLS_VERIFY: true
             DSSC_INSECURE_SKIP_REGISTRY_TLS_VERIFY: true
         - name: Cloud One Container Security Scan ACR
-          uses: felipecosta09/Cloud-One-Container-Security-Scan-Action@version*
+          uses: felipecosta09/Deep-Security-Smart-Check-Scan-Action@version*
           with:
             DSSC_IMAGE_NAME: myrepo.azurecr.io/myimage
             DSSC_SMARTCHECK_HOST: ${{ secrets.DSSC_SMARTCHECK_HOST }}
