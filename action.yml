@@ -43,7 +43,7 @@ inputs:
     description: (OPTIONAL) A JSON object that can be used to fail this step if an image contains findings that exceed the threshold.
     required: false
 branding:
-  icon: "check"
+  icon: "package"
   color: "red"
 runs:
   using: "docker"
