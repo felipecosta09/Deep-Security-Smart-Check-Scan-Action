@@ -1,10 +1,10 @@
-# Trend Micro Cloud One Container Security (Formerly Deep Security Smart Check)
+# Deep Security Smart Check
 
 You can find the original code on: https://github.com/deep-security/smartcheck-scan-action
 
 <img src="Trend-Micro-Logo.png">
 
-## Scan your containers with [Trend Micro Cloud One Container Security (Formerly Deep Security Smart Check)](https://www.trendmicro.com/smartcheck).
+## Scan your containers with [Deep Security Smart Check)](https://www.trendmicro.com/smartcheck).
 
 This tool is used by the Deep Security Smart Check plugin for [Jenkins](https://plugins.jenkins.io/deepsecurity-smartcheck/) and can also be used as a [GitHub Action](https://github.com/features/actions).
 
@@ -15,10 +15,10 @@ This tool is used by the Deep Security Smart Check plugin for [Jenkins](https://
 
 ## Usage
 
-Add an Action in your `.github/workflow` yml file to scan your image with Trend Micro Cloud One Container Security.
+Add an Action in your `.github/workflow` yml file to scan your image with Deep Security Smart Check.
 
 ```yml
-- name: Cloud One Container Security Scan Action
+- name: Deep Security Smart Check Scan Action
   uses: felipecosta09/Deep-Security-Smart-Check-Scan-Action@version*
    with:
       # Mandatory
@@ -167,7 +167,7 @@ be given with `DSSC_IMAGE_NAME`.
 ## Example Workflow Using Github Actions
 
 ```yml
-name: Cloud One Container Security
+name: Deep Security Smart Check
 
 on: 
   push:
@@ -175,10 +175,10 @@ on:
       - master
       
 jobs:      
-    Cloud-One-Container-Security-Scan-Action:
+    Deep-Security-Smart-Check-Scan-Action:
        runs-on: ubuntu-latest
        steps:
-        - name: Cloud One Container Security Scan ECR
+        - name: Deep Security Smart Check Scan ECR
           uses: felipecosta09/Deep-Security-Smart-Check-Scan-Action@version*
           with:
             DSSC_IMAGE_NAME: myECRrepo/myimage
@@ -205,7 +205,7 @@ jobs:
 ## Example Workflow Running a Docker Container
 
 ```yml
-name: Cloud One Container Security Pipeline Example
+name: Deep Security Smart Check Pipeline Example
 
 on: 
   push:
@@ -213,10 +213,10 @@ on:
       - master
       
 jobs:      
-    Cloud-One-Container-Security-Scan-Action:
+    Deep-Security-Smart-Check-Scan-Action:
        runs-on: ubuntu-latest
        steps:
-        - name: Cloud One Container Security
+        - name: Deep Security Smart Check
           run: |
           docker run -v /var/run/docker.sock:/var/run/docker.sock deepsecurity/smartcheck-scan-action --image-name MYREGISTRY/MYIMAGE --smartcheck-host=DSSC_URL --smartcheck-user=DSSC_USER --smartcheck-password=DSSC_PASSSWORD --insecure-skip-tls-verify --insecure-skip-registry-tls-verify --image-pull-auth='{"aws":{"region":"us-east-1","accessKeyID":"'$AWS_ACCESS_KEY_ID'","secretAccessKey":"'$AWS_SECRET_ACCESS_KEY'"}}' --findings-threshold '{"malware": 100, "vulnerabilities": { "defcon1": 100, "critical": 100, "high": 100 }, "contents": { "defcon1": 100, "critical": 100, "high": 100 }, "checklists": { "defcon1": 100, "critical": 100, "high": 100 }}'
           
