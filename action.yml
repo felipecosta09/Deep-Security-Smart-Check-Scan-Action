@@ -1,5 +1,5 @@
-name: "Cloud One Container Security Scan Action"
-description: "Scan container images with Trend Micro Cloud One Container Security (Formerly Deep Security Smart Check)."
+name: "Deep Security Smart Check Scan Action"
+description: "Scan container images with Deep Security Smart Check"
 inputs:
   DSSC_IMAGE_NAME:
     description: "Container repository, eg myorg/myimage."
